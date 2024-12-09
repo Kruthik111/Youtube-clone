@@ -2,25 +2,28 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import useFetch from "../utils/useFetch";
 import ErrorPage from "./ErrorPage";
 import ResultLoading from "../components/ResultLoading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const VideoCards = ({ e }) => {
+  const navigate = useNavigate();
   return (
-    <Link
-      to={`/Video/${e.id.videoId}`}
+    <div
+      onClick={() => navigate(`/Video/${e.id.videoId}`)}
       className="flex-1  h-full overflow-hidden min-w-72 max-w-96  md:min-w-80 bg-inherit pb-3"
       key={e.id.videoId}
     >
-      <div className=" rounded-lg max-h-56 md:max-h-60 -mt-9 overflow-hidden select-none bg-black">
-        <img
-          // src="https://static-cse.canva.com/blob/1684710/1600w-wK95f3XNRaM.jpg"
-          src={e.snippet.thumbnails.high.url}
-          draggable="false"
-          className="object-cover select-none m-auto"
-          alt=""
-        />
-      </div>
-      <div className="flex gap-1 justify-between text-black bg-inherit  border-solid px-1 pt-1 h-2/6  ">
+      <Link to={`/Video/${e.id.videoId}`}>
+        <div className=" rounded-lg max-h-56 md:max-h-60 -my-7 relative z-5 overflow-hidden select-none bg-black">
+          <img
+            // src="https://static-cse.canva.com/blob/1684710/1600w-wK95f3XNRaM.jpg"
+            src={e.snippet.thumbnails.high.url}
+            draggable="false"
+            className="object-cover select-none m-auto"
+            alt=""
+          />
+        </div>
+      </Link>
+      <div className="flex gap-1 justify-between text-black bg-inherit  border-solid px-1 pt-9 h-2/6  ">
         <div className="text-sm  dark:text-gray-300 h-1/4">
           <h1 className="text-base line-clamp-2 font-bold text-black dark:text-white tracking-tighter ">
             {e.snippet.title}
@@ -34,11 +37,14 @@ const VideoCards = ({ e }) => {
             <h1>34 minutes ago</h1>
           </span>
         </div>
-        <div className="pt-2 right-1">
+        <div
+          className="pt-2 right-1 dark:text-white"
+          onClick={(e) => e.stopPropagation()}
+        >
           <HiOutlineDotsVertical size={18} />
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

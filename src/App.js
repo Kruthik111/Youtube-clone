@@ -13,15 +13,11 @@ import PlaylistDetails from "./pages/PlaylistDetails";
 import Featured from "./pages/ChannelDetails/Featured";
 import Playlists from "./pages/ChannelDetails/Playlists";
 import Speech from "./pages/Speech";
-import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {
-  const { theme } = useContext(ThemeContext);
+  console.log("App");
   return (
-    <div
-      className={`${theme} w-screen font-[Arial] overflow-x-hidden relative transform-none max-w-full dark:bg-[#0f0f0f] scroll-smooth transition-colors duration-[500ms] ease-in-out min-h-screen `}
-      // style={{ filter: `brightness(${brightness}%)` }}
-    >
+    <div className="w-screen font-[Arial] overflow-x-hidden relative transform-none max-w-full dark:bg-[#0f0f0f] scroll-smooth transition-colors duration-[500ms] ease-in-out min-h-screen">
       <BrowserRouter>
         <Header />
         <Navbar />
