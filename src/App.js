@@ -15,7 +15,6 @@ import Playlists from "./pages/ChannelDetails/Playlists";
 import Speech from "./pages/Speech";
 
 const App = () => {
-  console.log("App");
   return (
     <div className="w-screen font-[Arial] overflow-x-hidden relative transform-none max-w-full dark:bg-[#0f0f0f] scroll-smooth transition-colors duration-[500ms] ease-in-out min-h-screen">
       <BrowserRouter>

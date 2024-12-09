@@ -22,7 +22,6 @@ export default function useFetch(url, options = {}) {
     } finally {
       setPending(false);
     }
-    console.log(data);
   }
 
   useEffect(() => {
