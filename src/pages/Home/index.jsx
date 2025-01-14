@@ -1,16 +1,16 @@
 import { HiOutlineDotsVertical } from "react-icons/hi";
-import useFetch from "../utils/useFetch";
-import ErrorPage from "./ErrorPage";
-import ResultLoading from "../components/ResultLoading";
+import useFetch from "../../utils/useFetch";
+import ErrorPage from "../ErrorPage";
+import ResultLoading from "../../components/ResultLoading";
 import { Link, useNavigate } from "react-router-dom";
 
-const VideoCards = ({ e }) => {
+const VideoCards = ({ e, key }) => {
   const navigate = useNavigate();
   return (
     <div
       onClick={() => navigate(`/Video/${e.id.videoId}`)}
       className="flex-1  h-full overflow-hidden min-w-72 max-w-96  md:min-w-80 bg-inherit pb-3"
-      key={e.id.videoId}
+      key={key}
     >
       <Link to={`/Video/${e.id.videoId}`}>
         <div className=" rounded-lg max-h-56 md:max-h-60 -my-7 relative z-5 overflow-hidden select-none bg-black">
@@ -57,7 +57,6 @@ const Home = (props) => {
   );
 
   if (pending) {
-    // if (true) {
     return (
       <div className="w-screen h-[500vh]  bg-black mt-20">
         <ResultLoading />
@@ -71,7 +70,7 @@ const Home = (props) => {
   return (
     <>
       <div className="flex flex-wrap justify-around sm:gap-2 pt-16 w-screen h-full scroll-smooth overflow-y-hidden min-h-screen dark:bg-black px-3">
-        {data && data.map((e) => <VideoCards e={e} />)}
+        {data && data.map((e, index) => <VideoCards key={index} e={e} />)}
       </div>
     </>
   );

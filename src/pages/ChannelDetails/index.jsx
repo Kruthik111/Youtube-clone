@@ -30,6 +30,7 @@ const ChannelDetails = () => {
   if (error) {
     return <ErrorPage />;
   }
+  console.log(data);
 
   return (
     data && (
@@ -65,7 +66,11 @@ const ChannelDetails = () => {
                   <div>{data.snippet?.description}</div>
                 </div>
                 <div className="flex items-center">
-                  <SubscribeButton />
+                  <SubscribeButton
+                    channelId={data[0].id}
+                    channelProfile={data[0].snippet.thumbnails.high.url}
+                    channelTitle={data[0].snippet.title}
+                  />
                 </div>
               </div>
             </div>

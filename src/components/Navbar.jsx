@@ -7,6 +7,7 @@ import { IoMdClose } from "react-icons/io";
 import { TbSquareRoundedLetterY } from "react-icons/tb";
 import NavItems from "./NavItems";
 import { SearchContext } from "../context/SearchContext";
+import { FaHistory } from "react-icons/fa";
 
 export default function Navbar() {
   const [expand, setExpand] = useState(true);
@@ -28,16 +29,16 @@ export default function Navbar() {
             comp={<MdHomeFilled color="red" size={componentSize} />}
           />
           <NavItems
-            color="purple"
-            to="/shorts"
-            title="Shorts"
-            comp={<SiShortcut color="purple" size={componentSize} />}
-          />
-          <NavItems
             color="orange"
             to="/subscription"
             title="Subscriptions"
             comp={<MdLiveTv color="orange" size={componentSize} />}
+          />
+          <NavItems
+            color="purple"
+            to="/History"
+            title="History"
+            comp={<FaHistory color="purple" size={componentSize} />}
           />
 
           <div

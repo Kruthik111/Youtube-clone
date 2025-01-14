@@ -1,7 +1,5 @@
-import Header from "../components/Header";
-import displayImg from "../assets/out-error.gif";
+import displayImg from "../../assets/out-error.gif";
 const ErrorPage = () => {
-  // document.title = "Oopsie doopsie, something happened dude";
   return (
     <div className="w-screen h-screen flex flex-col gap-6 justify-center items-center px-5  dark:bg-slate-800">
       {/* <Header /> */}

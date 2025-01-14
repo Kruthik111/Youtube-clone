@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 const VideoCard = ({ video, thumbnail, videoId, showChannel = true }) => {
   return (
     <Link to={`/Video/${videoId}`} key={videoId}>
-      <div className="flex text-black dark:text-gray-400 w-full gap-4 sm:max-w-96 tracking-tight min-w-[80vw] flex-col sm:flex-row ">
+      <div className="flex text-black dark:text-gray-400 w-full gap-4 sm:max-w-96 tracking-tight min-w-[80vw] flex-col sm:flex-row px-3">
         <div className="flex justify-center min-w-48  lg:min-w-[30rem] overflow-hidden rounded-lg ">
           <img
             src={thumbnail}
             // src="https://i.ytimg.com/vi/QTlSWa_8NAU/hqdefault.jpg"
             draggable="false"
             className="rounded-lg -my-12 w-fit"
+            loading="lazy"
             alt=""
           />
         </div>

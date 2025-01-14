@@ -1,10 +1,9 @@
 import { HiOutlineDotsVertical } from "react-icons/hi";
-import useFetch from "../utils/useFetch";
 import { Link } from "react-router-dom";
 const PlaylistCard = (props, { showChannel = true }) => {
   return (
     <Link to={`/Playlist/${props.video.id.playlistId}`}>
-      <div className="flex text-black dark:text-gray-400 w-full gap-4 lg:max-w-[30rem] tracking-tight flex-col sm:flex-row">
+      <div className="flex text-black dark:text-gray-400 w-full gap-4 sm:max-w-96 tracking-tight min-w-[80vw] flex-col sm:flex-row px-3">
         <div className="pt-2 pl-2 bg-slate-800 rounded-lg">
           <div className="pt-2 pl-2 bg-slate-600 rounded-lg">
             <div className=" min-w-48  lg:min-w-[29rem] overflow-hidden rounded-lg ">

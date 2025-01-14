@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Shorts from "./pages/Shorts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
@@ -13,6 +12,7 @@ import PlaylistDetails from "./pages/PlaylistDetails";
 import Featured from "./pages/ChannelDetails/Featured";
 import Playlists from "./pages/ChannelDetails/Playlists";
 import Speech from "./pages/Speech";
+import Subscription from "./pages/Subscription";
 
 const App = () => {
   return (
@@ -23,9 +23,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/speech" element={<Speech />} />
-          <Route path="/Shorts" element={<Shorts />} />
           <Route path="/Home" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/subscription" element={<Subscription />} />
           <Route path="/results" element={<Search />} />
           <Route
             path="/ChannelDetails/:channelId/"
@@ -33,12 +32,12 @@ const App = () => {
           >
             <Route index element={<Featured />} />
             <Route path="featured" element={<Featured />} />
-            <Route path="Shorts" element={<Shorts />} />
             <Route path="Videos" element={<VideoSection />} />
             <Route path="Playlists" element={<Playlists />} />
           </Route>
           <Route path="/Video/:videoId" element={<Video />} />
           <Route path="Playlist/:playlistId" element={<PlaylistDetails />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

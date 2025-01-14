@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useLocalStorage from "../utils/useLocalStorage";
 
 export const Subscribed = () => {
   return (
@@ -34,16 +35,42 @@ export const Subscribed = () => {
   );
 };
 
-const SubscribeButton = () => {
-  const [subscribed, setSubscribed] = useState(false);
+const SubscribeButton = ({ channelId, channelProfile = "", channelTitle }) => {
+  const [subscriptions, setSubscriptions] = useLocalStorage(
+    "subscriptions",
+    []
+  );
+  const [subscribed, setSubscribed] = useState(() => {
+    return subscriptions.some((item) => item.channelId === channelId);
+  });
+
+  function handleClick(event) {
+    event.preventDefault();
+    setTimeout(() => {
+      setSubscribed(!subscribed);
+    }, 500);
+    let dummySubs;
+    if (subscribed) {
+      dummySubs = subscriptions.filter((subs) => subs.channelId !== channelId);
+      setSubscribed([...dummySubs]);
+    } else {
+      dummySubs = [
+        ...subscriptions,
+        {
+          channelId: channelId,
+          channelProfile: channelProfile,
+          channelTitle: channelTitle,
+        },
+      ];
+    }
+    localStorage.setItem("subscriptions", JSON.stringify([...dummySubs]));
+    setSubscriptions([...dummySubs]);
+    console.log(dummySubs);
+  }
+
   return (
     <button
-      onClick={(e) => {
-        e.preventDefault();
-        setTimeout(() => {
-          setSubscribed(!subscribed);
-        }, 500);
-      }}
+      onClick={handleClick}
       className="relative  inline-flex items-center justify-center p-0.5 mb-2 me-2  text-sm font-bold text-white rounded-3xl group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white  focus:outline-none max-h-12 hover:ring-2 focus:ring-offset-purple-700 "
     >
       <span className="relative px-5 py-2.5 transition-all ease-in duration-1000   rounded-md group-hover:bg-opacity-0">

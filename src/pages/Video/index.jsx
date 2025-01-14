@@ -1,7 +1,6 @@
-import { HiOutlineDotsVertical } from "react-icons/hi";
 import { Link, useParams } from "react-router-dom";
 import "./Video.css";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import useFetch from "../../utils/useFetch";
 import ErrorPage from "../ErrorPage";
 import SubscribeButton from "../../components/Subscribe";
@@ -173,7 +172,11 @@ const Video = () => {
                   </h1>
                 </div>
               </Link>
-              <SubscribeButton />
+              <SubscribeButton
+                channelId={data[0].snippet.channelId}
+                channelTitle={data[0].snippet.channelTitle}
+              />
+              {/* {console.log("channel data;", data[0].snippet.channelId)} */}
             </div>
             {/* Description section */}
             <div className="bg-[#f2f2f2] dark:bg-[#272727] p-3 rounded-xl">
