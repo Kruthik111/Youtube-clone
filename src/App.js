@@ -13,6 +13,7 @@ import Featured from "./pages/ChannelDetails/Featured";
 import Playlists from "./pages/ChannelDetails/Playlists";
 import Speech from "./pages/Speech";
 import Subscription from "./pages/Subscription";
+import History from "./pages/History";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/speech" element={<Speech />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/subscription" element={<Subscription />} />
+          <Route path="/history" element={<History />} />
           <Route path="/results" element={<Search />} />
           <Route
             path="/ChannelDetails/:channelId/"
